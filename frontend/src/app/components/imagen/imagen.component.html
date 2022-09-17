@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Productos</h2>
+    <div class="row row-cols-1 row-cols-md-5 g-3">
+        <div class="col" *ngFor="let producto of productos">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            
+            <div class="card-header">
+                <img [src]="producto.imagen" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.nombre}}</h5>
+                    <p class="card-text">{{producto.detalle}}</p>
+                    <p class="card-text">{{producto.precio | currency: 'Q.'}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

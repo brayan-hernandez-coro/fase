@@ -1,0 +1,30 @@
+<div  class="container">
+<h2>Lista de Productos</h2>
+<button class="btn  btn-success mb-3" [routerLink]="['formulario']">(+)Agregar Producto</button>
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">PRECIO</th>
+        <th scope="col">CATEGORIA</th>
+        <th scope="col">DETALLES</th>
+        <th scope="col">ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.nombre}}</td>      
+        <td>{{producto.precio  | currency: 'Q.'}}</td>
+        <td>{{producto.categoria.nombre}}</td>
+        <td>{{producto.detalle}}</td>
+        <button class="btn btn-info me-2" [routerLink]="['formulario',producto.id]">Editar</button>
+        <button class="btn btn-danger" (click)="eliminarProducto(producto.id)">Eliminar</button>
+        
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

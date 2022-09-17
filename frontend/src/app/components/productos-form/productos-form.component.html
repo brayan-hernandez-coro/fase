@@ -1,0 +1,35 @@
+<div  class="container">
+  <form >
+<h2>Registro de Productos</h2>
+   <div class="mb-3" >
+    <label for="disabledTextInput" class="form-label">Nombre</label>
+  <input type="text" id="disabledTextInput" class="form-control" name="nombre" [(ngModel)] = "producto.nombre">
+  </div>
+  <div class="mb-3" >
+    <label for="exampleInputEmail1" class="form-label">Precio</label>
+  <input type="text" class="form-control" name="precio" [(ngModel)] = "producto.precio">
+  </div>
+  <div class="mb-3" >
+    <label for="exampleInputEmail1" class="form-label">Imagen</label>
+  <input type="text" class="form-control" name="imagen" [(ngModel)] = "producto.imagen">
+  </div>
+
+  <div class="mb-3" >
+    <label for="exampleInputEmail1" class="form-label">Detalle</label>
+  <input type="text" class="form-control" name="detalle" [(ngModel)] = "producto.detalle">
+  </div>
+
+<b><div class="form-group row">
+    <label for="categoria" class="col-form-label col-sm-2">Categoria</label>
+    <select  [compareWith]="compararCategoria" [(ngModel)]="producto.categoria" class="form-control" name="categoria">
+        <option [ngValue]="undefined">---Seleccionar Categoria---</option>
+        <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria.nombre}}</option>
+    </select>
+</div></b>
+<h1>
+<button type="submit" class="btn btn-primary" (click)="crearProducto()" *ngIf="!producto.id">Guardar Datos</button>
+<button type="submit" class="btn btn-warning" (click)="actualizarProducto()"*ngIf="producto.id">Actualizar Datos</button>
+</h1>
+
+</form>
+</div>
